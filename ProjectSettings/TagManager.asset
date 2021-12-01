@@ -8,6 +8,8 @@ TagManager:
   - OnGround
   - InAir
   - Enemy
+  - Bullet
+  - Obstacle
   layers:
   - Default
   - TransparentFX

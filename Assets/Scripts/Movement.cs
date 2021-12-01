@@ -11,8 +11,11 @@ public class Movement : MonoBehaviour
     private float desiredRot;
     public float damping = 10;
     public float rotSpeed = 250;
+    public float playerHP = 100;
     public Transform to;
     
+    float lastJump, timeBetweenJumps = 2.1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,22 +43,21 @@ public class Movement : MonoBehaviour
             player.transform.position += transform.forward * Time.deltaTime * speed;            
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            if(player.tag == "OnGround"){
+        if(Input.GetKey(KeyCode.Space)){
+            if(Time.time - lastJump > timeBetweenJumps){
+                lastJump = Time.time;
                 rigidbody.AddForce(new Vector3(0, 10, 0), ForceMode.VelocityChange);
-            }else{
-                Debug.Log("Not allowed to jump!");
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other){
-        if(other.tag == "Ground"){
-            player.tag = "OnGround";
-        }
-    }
+    // private void OnTriggerEnter(Collider other){
+    //     if(other.tag == "Ground"){
+    //         player.tag = "OnGround";
+    //     }
+    // }
 
-    private void OnTriggerExit(Collider other){
-        player.tag = "InAir";
-    }
+    // private void OnTriggerExit(Collider other){
+    //     player.tag = "InAir";
+    // }
 }

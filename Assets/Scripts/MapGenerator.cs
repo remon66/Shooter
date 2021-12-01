@@ -16,7 +16,6 @@ public class MapGenerator : MonoBehaviour
            {
                GameObject copy = Instantiate(cube, new Vector3(Random.Range(-40,40), 0, Random.Range(-20,20)), Quaternion.identity);
                copy.transform.localScale = new Vector3(Random.Range(2,5), Random.Range(5, 15), Random.Range(2,5));
-               copy.tag = "Ground";
                copy.transform.parent = parent.transform;
                copy.transform.position = new Vector3(copy.transform.position.x, copy.transform.localScale.y / 2, copy.transform.position.z);
            }

@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if(other.gameObject.layer == 8){
+        if(other.gameObject.tag == "Obstacle"){
             Destroy(this.gameObject);
             timer = 0.1f;
             Debug.LogWarning("Enemy Deleted!");

@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
     public Vector3 direction;
+    public Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class Bullet : MonoBehaviour
         bullet = this.gameObject;
         player = GameObject.Find("Player");
         direction = player.transform.forward;
+        rigidbody = this.GetComponent<Rigidbody>();
     }
 
     void Update(){
@@ -26,8 +28,9 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if(other.tag == "Enemy"){
-            Destroy(other);
+        if(other.gameObject.tag == "Obstacle"){
+            Destroy(this.gameObject);
         }
+    
     }
 }

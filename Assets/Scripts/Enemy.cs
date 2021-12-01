@@ -18,4 +18,16 @@ public class Enemy : MonoBehaviour
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = player.transform.position;
     }
+
+    private void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag == "Bullet"){
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag == "Player" || other.gameObject.layer == 7){
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+        }
+    }
 }
