@@ -40,24 +40,15 @@ public class Movement : MonoBehaviour
         transform.rotation = Quaternion.Lerp(desiredRotQ, transform.rotation, Time.deltaTime * damping);
 
         if(Input.GetKey(KeyCode.W)){
-            player.transform.position += transform.forward * Time.deltaTime * speed;            
+            player.transform.position += transform.forward * Time.deltaTime * speed;         
         }
 
-        if(Input.GetKey(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Debug.Log("cool");
             if(Time.time - lastJump > timeBetweenJumps){
                 lastJump = Time.time;
                 rigidbody.AddForce(new Vector3(0, 10, 0), ForceMode.VelocityChange);
             }
         }
     }
-
-    // private void OnTriggerEnter(Collider other){
-    //     if(other.tag == "Ground"){
-    //         player.tag = "OnGround";
-    //     }
-    // }
-
-    // private void OnTriggerExit(Collider other){
-    //     player.tag = "InAir";
-    // }
 }

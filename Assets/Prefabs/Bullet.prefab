@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 5
-  bulletSpeed: 15
+  bulletSpeed: 30
+  enemiesKilled: 0
   player: {fileID: 0}
   bullet: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}

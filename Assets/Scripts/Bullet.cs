@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
 
     public float bulletDamage = 5f;
     public float bulletSpeed = 50f;
+    public int enemiesKilled = 0;
     public GameObject player;
     public GameObject bullet;
     public Vector3 direction;
@@ -31,6 +33,5 @@ public class Bullet : MonoBehaviour
         if(other.gameObject.tag == "Obstacle"){
             Destroy(this.gameObject);
         }
-    
     }
 }
