@@ -41,7 +41,6 @@ public class Bullet : MonoBehaviour
         }
 
         if(other.gameObject.tag == "Enemy"){
-            Debug.LogError("fff");
             gun.enemiesKilled++;
             GameObject particle = Instantiate(bloodParticle, other.gameObject.transform.position, Quaternion.identity);
             Destroy(particle, 1f);

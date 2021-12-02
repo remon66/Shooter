@@ -22,8 +22,8 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Player" || other.gameObject.layer == 7){
+            player.GetComponent<Player>().playerHealth-=2;
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
         }
     }
 }

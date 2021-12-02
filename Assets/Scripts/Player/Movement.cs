@@ -11,7 +11,6 @@ public class Movement : MonoBehaviour
     private float desiredRot;
     public float damping = 10;
     public float rotSpeed = 250;
-    public float playerHP = 100;
     public Transform to;
     
     float lastJump, timeBetweenJumps = 2.1f;
