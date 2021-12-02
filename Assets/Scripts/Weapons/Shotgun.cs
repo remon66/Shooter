@@ -7,9 +7,9 @@ public class Shotgun : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
     public GameObject shootingPoint;
-    int strayFactor = 10;
+    public int strayFactor = 10;
     float lastBullet, timeBetweenBullets = 1f;
-    int bulletCount = 3;
+    public int bulletCount = 3;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +25,6 @@ public class Shotgun : MonoBehaviour
                     GameObject copyBullet = Instantiate(bullet, shootingPoint.transform.position, transform.rotation);
                     copyBullet.transform.Rotate(randomRotationX, randomRotationY, copyBullet.transform.position.z);
                     copyBullet.GetComponent<Rigidbody>().AddForce(copyBullet.transform.forward * 1250);
-                    Debug.Log(shootingPoint.transform.position.x + i);
                     Destroy(copyBullet, 5f);
                 }
             }

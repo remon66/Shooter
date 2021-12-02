@@ -21,13 +21,14 @@ public class Movement : MonoBehaviour
     {
         rigidbody = player.GetComponent<Rigidbody>();
         player = this.gameObject;
+        m_camera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.A)) {
-                desiredRot -= rotSpeed * Time.deltaTime;
+            desiredRot -= rotSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.D)) {
@@ -52,4 +53,5 @@ public class Movement : MonoBehaviour
             }
         }
     }
+    Camera m_camera;
 }

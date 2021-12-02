@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = player.transform.position;
+
+        
     }
 
     private void OnTriggerEnter(Collider other){
