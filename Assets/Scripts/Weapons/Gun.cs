@@ -9,7 +9,6 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public GameObject shootingPoint;
     float lastBullet, timeBetweenBullets = 0.25f;
-    public int enemiesKilled;
 
 
     // Update is called once per frame
@@ -19,6 +18,7 @@ public class Gun : MonoBehaviour
             if(Time.time - lastBullet > timeBetweenBullets){
                 lastBullet = Time.time;
                 GameObject copyBullet = Instantiate(bullet, shootingPoint.transform.position, Quaternion.identity);
+                copyBullet.GetComponent<Rigidbody>().AddForce(player.transform.forward * 1250);
                 Destroy(copyBullet, 5f);
             }
         }

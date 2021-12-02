@@ -7,7 +7,7 @@ public class Respawn : MonoBehaviour
     private void OnTriggerEnter(Collider other){
         Debug.Log("ground");
         if(other.gameObject.layer == 7){
-            other.transform.position = new Vector3(0,6,0);
+            other.transform.position = new Vector3(0,10,0);
         }
     }
 }

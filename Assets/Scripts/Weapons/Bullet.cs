@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
     public GameObject bloodParticle;
-    public Gun gun;
+    public Player playerObj;
     public Vector3 direction;
     public Rigidbody rigidbody;
     public Text enemiesKilledText;
@@ -20,19 +20,18 @@ public class Bullet : MonoBehaviour
     {
         bullet = this.gameObject;
         player = GameObject.Find("Player");
-        gun = GameObject.Find("Gun").GetComponent<Gun>();
+        playerObj = GameObject.Find("Player").GetComponent<Player>();
         direction = player.transform.forward;
         rigidbody = this.GetComponent<Rigidbody>();
         bloodParticle = GameObject.Find("Blood");
         enemiesKilledText = GameObject.Find("killedEnemies").GetComponent<Text>();
-        enemiesKilledText.text = "Enemies killed: " + gun.enemiesKilled;
+        enemiesKilledText.text = "Enemies killed: " + playerObj.enemiesKilled;
     }
 
     void Update(){
-        if(this.gameObject != null){
-            bullet.transform.position += direction * Time.deltaTime * bulletSpeed;
-        }
-        enemiesKilledText.text = "Enemies killed: " + gun.enemiesKilled;
+
+        //bullet.transform.position += direction * Time.deltaTime * bulletSpeed;
+        enemiesKilledText.text = "Enemies killed: " + playerObj.enemiesKilled;
     }
 
     private void OnTriggerEnter(Collider other){
@@ -41,7 +40,7 @@ public class Bullet : MonoBehaviour
         }
 
         if(other.gameObject.tag == "Enemy"){
-            gun.enemiesKilled++;
+            playerObj.enemiesKilled++;
             GameObject particle = Instantiate(bloodParticle, other.gameObject.transform.position, Quaternion.identity);
             Destroy(particle, 1f);
             Destroy(this.gameObject);

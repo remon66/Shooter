@@ -14,7 +14,12 @@ public class Apple : MonoBehaviour
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Player" || other.gameObject.layer == 7){
             GameObject eatCopy = Instantiate(eatParticle, this.transform.position, Quaternion.identity);
-            other.GetComponent<Player>().playerHealth++;
+            if(other.GetComponent<Player>().playerHealth == 10){
+                Destroy(this.gameObject);
+                return;
+            }else{
+                other.GetComponent<Player>().playerHealth++;
+            }
             Destroy(eatCopy, 5f);
             Destroy(this.gameObject);
         }

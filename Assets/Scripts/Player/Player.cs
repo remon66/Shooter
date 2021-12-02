@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     public int playerHealth = 6;
     public Text playerHealthText;
+    public int enemiesKilled;
 
     // Start is called before the first frame update
     void Start()
