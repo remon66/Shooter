@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public GameObject shootingPoint;
     float lastBullet, timeBetweenBullets = 0.25f;
+    public int enemiesKilled;
+
 
     // Update is called once per frame
     void Update()

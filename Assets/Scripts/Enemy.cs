@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-
     public GameObject player;
+    public Camera camera;
 
     void Start(){
         player = GameObject.Find("Player");
@@ -21,11 +21,6 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if(other.gameObject.tag == "Bullet"){
-            Destroy(this.gameObject);
-            Destroy(other.gameObject);
-        }
-
         if(other.gameObject.tag == "Player" || other.gameObject.layer == 7){
             Destroy(this.gameObject);
             Destroy(other.gameObject);

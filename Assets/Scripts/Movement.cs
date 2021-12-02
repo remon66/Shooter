@@ -42,9 +42,11 @@ public class Movement : MonoBehaviour
         if(Input.GetKey(KeyCode.W)){
             player.transform.position += transform.forward * Time.deltaTime * speed;         
         }
+        if(Input.GetKey(KeyCode.S)){
+            player.transform.position -= transform.forward * Time.deltaTime * speed;         
+        }
 
         if(Input.GetKeyDown(KeyCode.Space)){
-            Debug.Log("cool");
             if(Time.time - lastJump > timeBetweenJumps){
                 lastJump = Time.time;
                 rigidbody.AddForce(new Vector3(0, 10, 0), ForceMode.VelocityChange);
